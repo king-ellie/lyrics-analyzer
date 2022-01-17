@@ -1,0 +1,55 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "simple-import-sort"
+    ],
+    "rules": {
+        "simple-import-sort/exports": "error",
+        "simple-import-sort/imports": "error",
+        "no-irregular-whitespace": "off",
+        "space-before-function-paren": "off",
+        "semi-spacing": "warn",
+        "object-curly-spacing": ["warn", "always"],
+        "curly": ["error", "multi-line"],
+        "no-trailing-spaces": "warn",
+        "no-multi-spaces": "warn",
+        "array-bracket-spacing": "warn",
+        "block-spacing": ["off", "never"],
+        "comma-spacing": "warn",
+        "func-call-spacing": "off",
+        "key-spacing": "warn",
+        "indent": "off", // NOTE: This is off because prettier will handle indentation
+        "keyword-spacing": "warn",
+        "no-useless-escape": "off",
+        "no-unused-vars": "off",
+        "prefer-const": "error",
+        "semi": "error",
+        "no-extra-semi": "error",
+        "no-var": "error",
+        "max-lines-per-function": "off",
+        "no-console": "warn",
+        "no-debugger": "warn",
+        "no-alert": "warn",
+        "no-eval": "error",
+        "no-implied-eval": "error",
+        "no-import-assign": "off",
+        "no-undefined": "off"
+    }
+}

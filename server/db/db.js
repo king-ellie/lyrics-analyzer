@@ -1,12 +1,18 @@
 const { Sequelize, DataTypes } = require('sequelize')
 
-const dbName
-const db = new Sequelize(`postgres://localhost/${dbName}`, {logging: false})
+const db = new Sequelize('postgres://localhost/lyricsanalyzer', { logging: false })
 
 // Define models here or move them to other files in the db directory
-const SampleModel = db.define('nameOfModel', {
+const Piece = db.define('Piece', {
     name: {
         type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    },
+    text: {
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
             notEmpty: true
@@ -14,9 +20,24 @@ const SampleModel = db.define('nameOfModel', {
     }
 })
 
+const Artist = db.define('Artist', {
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true
+        }
+    }
+
+})
+
+Piece.belongsTo(Artist)
+Artist.hasMany(Piece)
+
 module.exports = {
     db,
     models: {
-        SampleModel,
+        Piece,
+        Artist
     }
 }

@@ -1,17 +1,20 @@
 module.exports = {
     mode: 'development',
-    devtool: 'source-map',
-    entry: './client/index.js',
+    devtool: 'inline-source-map',
+    entry: './client/index.tsx',
     output: {
-      filename: './public/bundle.js',
-      path: __dirname,
+      filename: 'bundle.js',
+      path: __dirname + '/public/build'
     },
     module: {
       rules: [
         {
-          loader: 'babel-loader',
-          exclude: /(node_modules)/,
-        },
-      ],
+          loader: 'ts-loader',
+          exclude: /(node_modules)/
+        }
+      ]
     },
-  };
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js']
+    }
+  }
