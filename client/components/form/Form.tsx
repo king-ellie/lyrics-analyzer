@@ -1,20 +1,17 @@
+import axios from 'axios';
 import React, { useState } from 'react';
-import axios from "axios";
-// import { PieceText } from "./entity.schemas";
-import { HashRouter as Router, Link, Route, Switch } from 'react-router-dom'
 
 function Form() {
-  const [pieceText, setPieceText] = useState<string | null>(null)
-  const [artistText, setArtistText] = useState<string | null>(null)
+  const [pieceText, setPieceText] = useState<string | null>(null);
+  const [artistText, setArtistText] = useState<string | null>(null);
 
   async function onSubmit(event: any) {
     event.preventDefault();
 
-    const newPiece = (await axios.post('/api/piece', { 
-      piece: pieceText, 
-      artist: artistText, 
+    const newPiece = (await axios.post('/api/piece', {
+      piece: pieceText,
+      artist: artistText
     })).data;
-  
   }
 
   return (
@@ -29,7 +26,7 @@ function Form() {
           <button type="submit">Submit</button>
         </form>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
